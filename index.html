@@ -1,61 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Game Store</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#0b1220;color:white;}
+header{padding:20px;background:#111c33;text-align:center;}
+input{width:80%;padding:10px;border:none;border-radius:8px;margin-top:10px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:15px;padding:20px;}
+.card{background:#141f3a;border-radius:12px;overflow:hidden;cursor:pointer;}
+.card img{width:100%;height:120px;object-fit:cover;}
+.content{padding:10px;}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🎮 INDIE GAME STORE</h1>
+<input id="search" placeholder="Oyun ara...">
+</header>
+
+<div class="grid" id="box"></div>
+
 <script>
 
-// 🎮 OYUNLAR (bunu sonra 100 yapacağız)
 let games = [
-{ id:1, name:"Project Breach 2", cat:"Horror Multiplayer", img:"https://picsum.photos/300?1", rating:4.5, link:"https://play.google.com/store/search?q=Project%20Breach%202" },
-{ id:2, name:"Asylum77", cat:"Horror Multiplayer", img:"https://picsum.photos/300?2", rating:4.4, link:"https://play.google.com/store/search?q=Asylum77" },
-{ id:3, name:"Steel and Flesh 2", cat:"Strategy", img:"https://picsum.photos/300?3", rating:4.6, link:"https://play.google.com/store/search?q=Steel%20and%20Flesh%202" },
-{ id:4, name:"Specimen Zero", cat:"Horror", img:"https://picsum.photos/300?4", rating:4.3, link:"https://play.google.com/store/search?q=Specimen%20Zero" },
-{ id:5, name:"Horrorfield", cat:"Horror Multiplayer", img:"https://picsum.photos/300?5", rating:4.4, link:"https://play.google.com/store/search?q=Horrorfield" },
-{ id:6, name:"The Ghost", cat:"Horror Multiplayer", img:"https://picsum.photos/300?6", rating:4.5, link:"https://play.google.com/store/search?q=The%20Ghost%20Multiplayer" },
-{ id:7, name:"Mimicry", cat:"Horror Multiplayer", img:"https://picsum.photos/300?7", rating:4.3, link:"https://play.google.com/store/search?q=Mimicry%20Horror" },
-{ id:8, name:"Noclip Backrooms Multiplayer", cat:"Horror Multiplayer", img:"https://picsum.photos/300?8", rating:4.2, link:"https://play.google.com/store/search?q=Noclip%20Backrooms" },
-{ id:9, name:"Backrooms Company Multiplayer", cat:"Horror Multiplayer", img:"https://picsum.photos/300?9", rating:4.1, link:"https://play.google.com/store/search?q=Backrooms%20Company" },
-{ id:10, name:"Paranormal Multiplayer Horror", cat:"Horror Multiplayer", img:"https://picsum.photos/300?10", rating:4.3, link:"https://play.google.com/store/search?q=Paranormal%20Multiplayer%20Horror" },
-
-{ id:11, name:"Eyes Horror", cat:"Horror Multiplayer", img:"https://picsum.photos/300?11", rating:4.2, link:"https://play.google.com/store/search?q=Eyes%20Horror" },
-{ id:12, name:"Nightfall Horror", cat:"Horror Multiplayer", img:"https://picsum.photos/300?12", rating:4.1, link:"https://play.google.com/store/search?q=Nightfall%20Horror" },
-{ id:13, name:"Spider Horror Multiplayer", cat:"Horror Multiplayer", img:"https://picsum.photos/300?13", rating:4.0, link:"https://play.google.com/store/search?q=Spider%20Horror" },
-{ id:14, name:"Human Fall Flat", cat:"Puzzle Adventure", img:"https://picsum.photos/300?14", rating:4.6, link:"https://play.google.com/store/search?q=Human%20Fall%20Flat" },
-{ id:15, name:"Mindustry", cat:"Strategy", img:"https://picsum.photos/300?15", rating:4.7, link:"https://play.google.com/store/search?q=Mindustry" },
-{ id:16, name:"Rusted Warfare", cat:"Strategy RTS", img:"https://picsum.photos/300?16", rating:4.6, link:"https://play.google.com/store/search?q=Rusted%20Warfare" },
-{ id:17, name:"Just Survival Multiplayer", cat:"Survival", img:"https://picsum.photos/300?17", rating:4.2, link:"https://play.google.com/store/search?q=Just%20Survival" },
-{ id:18, name:"Arena Breakout", cat:"FPS Shooter", img:"https://picsum.photos/300?18", rating:4.7, link:"https://play.google.com/store/search?q=Arena%20Breakout" },
-{ id:19, name:"Identity V", cat:"Horror Multiplayer", img:"https://picsum.photos/300?19", rating:4.5, link:"https://play.google.com/store/search?q=Identity%20V" },
-{ id:20, name:"Dead by Daylight Mobile", cat:"Horror Multiplayer", img:"https://picsum.photos/300?20", rating:4.6, link:"https://play.google.com/store/search?q=Dead%20by%20Daylight" },
-
-{ id:21, name:"TheoTown", cat:"Simulation", img:"https://picsum.photos/300?21", rating:4.6, link:"https://play.google.com/store/search?q=TheoTown" },
-{ id:22, name:"Vampire Survivors", cat:"Action Roguelike", img:"https://picsum.photos/300?22", rating:4.8, link:"https://play.google.com/store/search?q=Vampire%20Survivors" },
-{ id:23, name:"Sky Children of the Light", cat:"Adventure", img:"https://picsum.photos/300?23", rating:4.7, link:"https://play.google.com/store/search?q=Sky%20Children%20of%20the%20Light" },
-{ id:24, name:"Monument Valley", cat:"Puzzle", img:"https://picsum.photos/300?24", rating:4.8, link:"https://play.google.com/store/search?q=Monument%20Valley" },
-{ id:25, name:"Monument Valley 2", cat:"Puzzle", img:"https://picsum.photos/300?25", rating:4.8, link:"https://play.google.com/store/search?q=Monument%20Valley%202" },
-
-{ id:26, name:"Machinarium", cat:"Puzzle Adventure", img:"https://picsum.photos/300?26", rating:4.7, link:"https://play.google.com/store/search?q=Machinarium" },
-{ id:27, name:"Botanicula", cat:"Adventure", img:"https://picsum.photos/300?27", rating:4.6, link:"https://play.google.com/store/search?q=Botanicula" },
-{ id:28, name:"Leo's Fortune", cat:"Platformer", img:"https://picsum.photos/300?28", rating:4.6, link:"https://play.google.com/store/search?q=Leo%27s%20Fortune" },
-{ id:29, name:"Crashlands", cat:"Adventure RPG", img:"https://picsum.photos/300?29", rating:4.7, link:"https://play.google.com/store/search?q=Crashlands" },
-{ id:30, name:"Threes!", cat:"Puzzle", img:"https://picsum.photos/300?30", rating:4.5, link:"https://play.google.com/store/search?q=Threes" },
-
-{ id:31, name:"Afterplace", cat:"Adventure", img:"https://picsum.photos/300?31", rating:4.6, link:"https://play.google.com/store/search?q=Afterplace" },
-{ id:32, name:"Soul Knight", cat:"Action", img:"https://picsum.photos/300?32", rating:4.7, link:"https://play.google.com/store/search?q=Soul%20Knight" },
-{ id:33, name:"Swordigo", cat:"Adventure", img:"https://picsum.photos/300?33", rating:4.6, link:"https://play.google.com/store/search?q=Swordigo" },
-{ id:34, name:"Candies and Curses", cat:"Roguelike", img:"https://picsum.photos/300?34", rating:4.4, link:"https://play.google.com/store/search?q=Candies%20and%20Curses" },
-{ id:35, name:"Human Resource Machine", cat:"Puzzle", img:"https://picsum.photos/300?35", rating:4.5, link:"https://play.google.com/store/search?q=Human%20Resource%20Machine" },
-
-{ id:36, name:"Mini Metro", cat:"Simulation", img:"https://picsum.photos/300?36", rating:4.7, link:"https://play.google.com/store/search?q=Mini%20Metro" },
-{ id:37, name:"Mini Motorways", cat:"Simulation", img:"https://picsum.photos/300?37", rating:4.7, link:"https://play.google.com/store/search?q=Mini%20Motorways" },
-{ id:38, name:"Alto's Adventure", cat:"Endless Runner", img:"https://picsum.photos/300?38", rating:4.8, link:"https://play.google.com/store/search?q=Alto%27s%20Adventure" },
-{ id:39, name:"Alto's Odyssey", cat:"Endless Runner", img:"https://picsum.photos/300?39", rating:4.8, link:"https://play.google.com/store/search?q=Alto%27s%20Odyssey" },
-{ id:40, name:"Badland", cat:"Adventure", img:"https://picsum.photos/300?40", rating:4.5, link:"https://play.google.com/store/search?q=Badland" },
-
-{ id:41, name:"Grimvalor", cat:"Action RPG", img:"https://picsum.photos/300?41", rating:4.7, link:"https://play.google.com/store/search?q=Grimvalor" },
-{ id:42, name:"Levelhead", cat:"Platformer", img:"https://picsum.photos/300?42", rating:4.6, link:"https://play.google.com/store/search?q=Levelhead" },
-{ id:43, name:"Mindustry", cat:"Strategy", img:"https://picsum.photos/300?43", rating:4.7, link:"https://play.google.com/store/search?q=Mindustry" },
-{ id:44, name:"Terraria Mobile", cat:"Sandbox", img:"https://picsum.photos/300?44", rating:4.8, link:"https://play.google.com/store/search?q=Terraria" },
-{ id:45, name:"Stardew Valley", cat:"Simulation", img:"https://picsum.photos/300?45", rating:4.9, link:"https://play.google.com/store/search?q=Stardew%20Valley" }
+{ id:1, name:"Test Game", cat:"Demo", img:"https://picsum.photos/300", rating:4.5, link:"https://play.google.com/store" }
 ];
 
-// 📌 EKRANA BASMA SİSTEMİ
 function render(list){
 let box = document.getElementById("box");
 box.innerHTML = "";
@@ -76,10 +50,12 @@ box.innerHTML += `
 
 render(games);
 
-// 🔍 ARAMA
 document.getElementById("search").addEventListener("input",(e)=>{
 let v = e.target.value.toLowerCase();
-render(games.filter(g => g.name.toLowerCase().includes(v)));
+render(games.filter(g=>g.name.toLowerCase().includes(v)));
 });
 
 </script>
+
+</body>
+</html>
