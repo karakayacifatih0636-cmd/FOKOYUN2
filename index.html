@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Indie Game Store</title>
+<title>FOKOYUN2</title>
 
 <style>
 body{margin:0;font-family:Arial;background:#0b1220;color:white;}
@@ -18,7 +18,7 @@ input{width:80%;padding:10px;border:none;border-radius:8px;margin-top:10px;}
 <body>
 
 <header>
-<h1>🎮 INDIE GAME STORE</h1>
+<h1>🎮 FOKOYUN2</h1>
 <input id="search" placeholder="Oyun ara...">
 </header>
 
@@ -27,6 +27,37 @@ input{width:80%;padding:10px;border:none;border-radius:8px;margin-top:10px;}
 <script>
 
 let games = [
+{ id:56, name:"Parkour Labs", cat:"Parkour", img:"https://picsum.photos/300?56", rating:4.3, link:"https://play.google.com/store/search?q=Parkour%20Labs" },
+{ id:57, name:"Only Up GO Multiplayer Parkour", cat:"Parkour", img:"https://picsum.photos/300?57", rating:4.2, link:"https://play.google.com/store/search?q=Only%20Up%20GO%20Multiplayer%20Parkour" },
+{ id:58, name:"Parkour Race Multiplayer", cat:"Parkour", img:"https://picsum.photos/300?58", rating:4.4, link:"https://play.google.com/store/search?q=Parkour%20Race%20Multiplayer" },
+{ id:59, name:"Parkour Go Multiplayer", cat:"Parkour", img:"https://picsum.photos/300?59", rating:4.2, link:"https://play.google.com/store/search?q=Parkour%20Go%20Multiplayer" },
+
+{ id:60, name:"Once Human Mobile", cat:"Survival", img:"https://picsum.photos/300?60", rating:4.6, link:"https://play.google.com/store/search?q=Once%20Human%20Mobile" },
+{ id:61, name:"Lost Future", cat:"Survival", img:"https://picsum.photos/300?61", rating:4.4, link:"https://play.google.com/store/search?q=Lost%20Future" },
+{ id:62, name:"Mini DAYZ", cat:"Survival", img:"https://picsum.photos/300?62", rating:4.5, link:"https://play.google.com/store/search?q=Mini%20DAYZ" },
+{ id:63, name:"DYSMANTLE", cat:"Survival", img:"https://picsum.photos/300?63", rating:4.7, link:"https://play.google.com/store/search?q=DYSMANTLE" },
+{ id:64, name:"Oxide Survival Island", cat:"Survival", img:"https://picsum.photos/300?64", rating:4.3, link:"https://play.google.com/store/search?q=Oxide%20Survival%20Island" },
+
+{ id:65, name:"Mortal Company", cat:"Horror", img:"https://picsum.photos/300?65", rating:4.4, link:"https://play.google.com/store/search?q=Mortal%20Company" },
+{ id:66, name:"P.O.N.", cat:"Horror", img:"https://picsum.photos/300?66", rating:4.3, link:"https://play.google.com/store/search?q=P.O.N.%20Co-op%20Horror" },
+{ id:67, name:"Shift At Midnight", cat:"Horror", img:"https://picsum.photos/300?67", rating:4.4, link:"https://play.google.com/store/search?q=Shift%20At%20Midnight" },
+{ id:68, name:"Backrooms Lost Runners", cat:"Horror", img:"https://picsum.photos/300?68", rating:4.2, link:"https://play.google.com/store/search?q=Backrooms%20Lost%20Runners" },
+
+{ id:69, name:"Combat Master", cat:"FPS", img:"https://picsum.photos/300?69", rating:4.7, link:"https://play.google.com/store/search?q=Combat%20Master" },
+{ id:70, name:"POLYWAR", cat:"FPS", img:"https://picsum.photos/300?70", rating:4.4, link:"https://play.google.com/store/search?q=POLYWAR" },
+{ id:71, name:"Special Operations Forces", cat:"FPS", img:"https://picsum.photos/300?71", rating:4.3, link:"https://play.google.com/store/search?q=Special%20Operations%20Forces" },
+{ id:72, name:"Critical Ops", cat:"FPS", img:"https://picsum.photos/300?72", rating:4.6, link:"https://play.google.com/store/search?q=Critical%20Ops" },
+
+{ id:73, name:"Planet Craft", cat:"Sandbox", img:"https://picsum.photos/300?73", rating:4.3, link:"https://play.google.com/store/search?q=Planet%20Craft" },
+{ id:74, name:"World of Cubes", cat:"Sandbox", img:"https://picsum.photos/300?74", rating:4.2, link:"https://play.google.com/store/search?q=World%20of%20Cubes" },
+{ id:75, name:"Mini World", cat:"Sandbox", img:"https://picsum.photos/300?75", rating:4.4, link:"https://play.google.com/store/search?q=Mini%20World" },
+{ id:76, name:"Block Craft 3D", cat:"Sandbox", img:"https://picsum.photos/300?76", rating:4.3, link:"https://play.google.com/store/search?q=Block%20Craft%203D" },
+
+{ id:77, name:"Vroomies", cat:"Party", img:"https://picsum.photos/300?77", rating:4.2, link:"https://play.google.com/store/search?q=Vroomies" },
+{ id:78, name:"Boom Slingers", cat:"Party", img:"https://picsum.photos/300?78", rating:4.4, link:"https://play.google.com/store/search?q=Boom%20Slingers" },
+{ id:79, name:"Punch TV", cat:"Party", img:"https://picsum.photos/300?79", rating:4.2, link:"https://play.google.com/store/search?q=Punch%20TV" },
+{ id:80, name:"Pico Tanks", cat:"Action", img:"https://picsum.photos/300?80", rating:4.5, link:"https://play.google.com/store/search?q=Pico%20Tanks" }
+
 { id:1, name:"Project Breach 2", cat:"Horror Multiplayer", img:"https://picsum.photos/300?1", rating:4.5, link:"https://play.google.com/store/search?q=Project%20Breach%202" },
 { id:2, name:"Asylum77", cat:"Horror Multiplayer", img:"https://picsum.photos/300?2", rating:4.4, link:"https://play.google.com/store/search?q=Asylum77" },
 { id:3, name:"Steel and Flesh 2", cat:"Strategy", img:"https://picsum.photos/300?3", rating:4.6, link:"https://play.google.com/store/search?q=Steel%20and%20Flesh%202" },
