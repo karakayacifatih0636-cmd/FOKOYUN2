@@ -4,7 +4,6 @@
     "name": "Game 1",
     "cat": "Action",
     "desc": "Oyun açıklaması",
-    "img": "https://picsum.photos/300?1",
     "rating": 4.2,
     "trend": true
   },
@@ -13,7 +12,6 @@
     "name": "Game 2",
     "cat": "Puzzle",
     "desc": "Oyun açıklaması",
-    "img": "https://picsum.photos/300?2",
     "rating": 4.0,
     "trend": false
   }
