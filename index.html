@@ -40,7 +40,6 @@ input{width:80%;padding:10px;border:none;border-radius:8px;margin-top:10px;}
 <button onclick="showCat('Parkour')">🏃 Parkour</button>
 <button onclick="showCat('Strategy')">⚔️ Strategy</button>
 <button onclick="topRated()">⭐ En Yüksek Puanlılar</button>
-<button onclick="topRated()">⭐ En Yüksek Puanlılar</button>
 <button onclick="randomGame()">🎲 Rastgele Oyun</button>
 </div>
 <div class="grid" id="box"></div>
@@ -265,6 +264,71 @@ let games = [
 {id:188, name:"Specimen Zero", cat:"Horror", img:"https://picsum.photos/300?188", rating:4.5, link:"https://play.google.com/store/search?q=Specimen%20Zero"},
 {id:189, name:"Horrorfield", cat:"Horror", img:"https://picsum.photos/300?189", rating:4.4, link:"https://play.google.com/store/search?q=Horrorfield"},
 {id:190, name:"The Ghost", cat:"Horror", img:"https://picsum.photos/300?190", rating:4.7, link:"https://play.google.com/store/search?q=The%20Ghost"},
+{id:191, name:"Undawn", cat:"Survival", rating:4.6, link:"https://play.google.com/store/search?q=Undawn"},
+{id:192, name:"Tomorrow MMO Nuclear Quest", cat:"Survival MMO", rating:4.4, link:"https://play.google.com/store/search?q=Tomorrow MMO Nuclear Quest"},
+{id:193, name:"Ylands", cat:"Sandbox Multiplayer", rating:4.5, link:"https://play.google.com/store/search?q=Ylands"},
+{id:194, name:"On My Own", cat:"Survival", rating:4.2, link:"https://play.google.com/store/search?q=On My Own"},
+{id:195, name:"Apocalypse Survival New Order", cat:"Survival", rating:4.3, link:"https://play.google.com/store/search?q=Apocalypse Survival New Order"},
+{id:196, name:"Dawn of Zombies", cat:"Survival", rating:4.5, link:"https://play.google.com/store/search?q=Dawn of Zombies"},
+{id:197, name:"The Floor is Lava Game", cat:"Parkour", rating:4.2, link:"https://play.google.com/store/search?q=The Floor is Lava"},
+{id:198, name:"Bhop Pro", cat:"Parkour", rating:4.5, link:"https://play.google.com/store/search?q=Bhop Pro"},
+{id:199, name:"Urban Heat Tactical FPS", cat:"FPS", rating:4.3, link:"https://play.google.com/store/search?q=Urban Heat Tactical FPS"},
+{id:200, name:"T3 Arena", cat:"FPS", rating:4.6, link:"https://play.google.com/store/search?q=T3 Arena"},
+
+{id:201, name:"Rogue Company Elite Mobile", cat:"FPS", rating:4.5, link:"https://play.google.com/store/search?q=Rogue Company Elite Mobile"},
+{id:202, name:"World at War WW2 Strategy", cat:"Strategy", rating:4.4, link:"https://play.google.com/store/search?q=World at War WW2 Strategy"},
+{id:203, name:"Grand Outlaws RP Life", cat:"RP", rating:4.3, link:"https://play.google.com/store/search?q=Grand Outlaws RP Life"},
+{id:204, name:"The Division Resurgence", cat:"FPS RPG", rating:4.8, link:"https://play.google.com/store/search?q=The Division Resurgence"},
+{id:205, name:"Sound of Horses", cat:"Simulation", rating:4.1, link:"https://play.google.com/store/search?q=Sound of Horses"},
+{id:206, name:"Auroria Playful Journey", cat:"Adventure", rating:4.6, link:"https://play.google.com/store/search?q=Auroria Playful Journey"},
+{id:207, name:"Lumiterra", cat:"Adventure Multiplayer", rating:4.5, link:"https://play.google.com/store/search?q=Lumiterra"},
+{id:208, name:"Stacks Village", cat:"Survival", rating:4.2, link:"https://play.google.com/store/search?q=Stacks Village"},
+{id:209, name:"Toram Online", cat:"MMORPG", rating:4.7, link:"https://play.google.com/store/search?q=Toram Online"},
+{id:210, name:"Feral Frontier", cat:"Roguelike", rating:4.4, link:"https://play.google.com/store/search?q=Feral Frontier"},
+
+{id:211, name:"Warship Battle Multiplayer", cat:"Action", rating:4.3, link:"https://play.google.com/store/search?q=Warship Battle Multiplayer"},
+{id:212, name:"Destiny Rising", cat:"FPS RPG", rating:4.7, link:"https://play.google.com/store/search?q=Destiny Rising"},
+{id:213, name:"Riftbusters", cat:"Co-op", rating:4.5, link:"https://play.google.com/store/search?q=Riftbusters"},
+{id:214, name:"Delivery From the Pain", cat:"Survival", rating:4.6, link:"https://play.google.com/store/search?q=Delivery From the Pain"},
+{id:215, name:"Spirit of the Island", cat:"Simulation", rating:4.4, link:"https://play.google.com/store/search?q=Spirit of the Island"},
+{id:216, name:"Niffelheim", cat:"Survival", rating:4.5, link:"https://play.google.com/store/search?q=Niffelheim"},
+{id:217, name:"Wasteland Story", cat:"Survival", rating:4.4, link:"https://play.google.com/store/search?q=Wasteland Story"},
+{id:218, name:"Craft The World", cat:"Sandbox", rating:4.6, link:"https://play.google.com/store/search?q=Craft The World"},
+{id:219, name:"Necesse", cat:"Sandbox Survival", rating:4.8, link:"https://play.google.com/store/search?q=Necesse"},
+{id:220, name:"Starbound Mobile", cat:"Sandbox", rating:4.5, link:"https://play.google.com/store/search?q=Starbound"},
+
+{id:221, name:"V Rising Mobile", cat:"Survival", rating:4.8, link:"https://play.google.com/store/search?q=V Rising"},
+{id:222, name:"Conan Exiles Mobile", cat:"Survival Sandbox", rating:4.7, link:"https://play.google.com/store/search?q=Conan Exiles"},
+{id:223, name:"Megabonk Survival", cat:"Survival", rating:4.1, link:"https://play.google.com/store/search?q=Megabonk Survival"},
+{id:224, name:"Bloody Bastards", cat:"Medieval Action", rating:4.7, link:"https://play.google.com/store/search?q=Bloody Bastards"},
+{id:225, name:"GoreBox", cat:"Sandbox", rating:4.8, link:"https://play.google.com/store/search?q=GoreBox"},
+{id:226, name:"Heartopia", cat:"Life Sim MMO", rating:4.5, link:"https://play.google.com/store/search?q=Heartopia"},
+{id:227, name:"Arknights Endfield", cat:"RPG Co-op", rating:4.8, link:"https://play.google.com/store/search?q=Arknights Endfield"},
+{id:228, name:"Highguard", cat:"PvPvE Shooter", rating:4.4, link:"https://play.google.com/store/search?q=Highguard"},
+{id:229, name:"Only Up Go Multiplayer Parkour", cat:"Parkour", rating:4.2, link:"https://play.google.com/store/search?q=Only Up Go Multiplayer Parkour"},
+{id:230, name:"Hot Lava Floor Multiplayer", cat:"Parkour", rating:4.2, link:"https://play.google.com/store/search?q=Hot Lava Floor Multiplayer"},
+
+{id:231, name:"Frostborn Viking Survival", cat:"Survival", rating:4.6, link:"https://play.google.com/store/search?q=Frostborn Viking Survival"},
+{id:232, name:"LifeAfter Co-op", cat:"Survival", rating:4.6, link:"https://play.google.com/store/search?q=LifeAfter Co-op"},
+{id:233, name:"Last Day on Earth Multiplayer", cat:"Survival", rating:4.7, link:"https://play.google.com/store/search?q=Last Day on Earth"},
+{id:234, name:"Parkour Craft Online PvP", cat:"Parkour", rating:4.3, link:"https://play.google.com/store/search?q=Parkour Craft Online PvP"},
+{id:235, name:"Skybound Only Up Parkour", cat:"Parkour", rating:4.2, link:"https://play.google.com/store/search?q=Skybound Only Up Parkour"},
+{id:236, name:"Arena Breakout Extraction", cat:"FPS", rating:4.8, link:"https://play.google.com/store/search?q=Arena Breakout"},
+{id:237, name:"Rainbow Six Mobile", cat:"FPS", rating:4.8, link:"https://play.google.com/store/search?q=Rainbow Six Mobile"},
+{id:238, name:"Armored Squad Mechs vs Robots", cat:"Action", rating:4.4, link:"https://play.google.com/store/search?q=Armored Squad"},
+{id:239, name:"Delta Force Global Ops", cat:"FPS", rating:4.8, link:"https://play.google.com/store/search?q=Delta Force Global Ops"},
+{id:240, name:"Code of War Military Gun Game", cat:"FPS", rating:4.3, link:"https://play.google.com/store/search?q=Code of War"},
+
+{id:241, name:"Strykon FPS", cat:"FPS", rating:4.2, link:"https://play.google.com/store/search?q=Strykon"},
+{id:242, name:"Ronin The Last Samurai Multiplayer", cat:"Action", rating:4.7, link:"https://play.google.com/store/search?q=Ronin The Last Samurai"},
+{id:243, name:"Bullet Force", cat:"FPS", rating:4.6, link:"https://play.google.com/store/search?q=Bullet Force"},
+{id:244, name:"POLYWAR 3D FPS", cat:"FPS", rating:4.4, link:"https://play.google.com/store/search?q=POLYWAR"},
+{id:245, name:"Door Kickers Action Squad", cat:"Action", rating:4.7, link:"https://play.google.com/store/search?q=Door Kickers Action Squad"},
+{id:246, name:"Retract Survive", cat:"Survival", rating:4.2, link:"https://play.google.com/store/search?q=Retract Survive"},
+{id:247, name:"Project RIP Horror Survival", cat:"Horror", rating:4.5, link:"https://play.google.com/store/search?q=Project RIP"},
+{id:248, name:"Lumiterra Multiplayer", cat:"Adventure", rating:4.5, link:"https://play.google.com/store/search?q=Lumiterra Multiplayer"},
+{id:249, name:"Spirit of the Island Multiplayer", cat:"Simulation", rating:4.4, link:"https://play.google.com/store/search?q=Spirit of the Island"},
+{id:250, name:"Necesse Town Building Co-op", cat:"Sandbox", rating:4.8, link:"https://play.google.com/store/search?q=Necesse"},
 ];
 
 function render(list){
