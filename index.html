@@ -15,7 +15,12 @@ body{
 header{padding:20px;background:#b8b2a7;text-align:center;}
 input{width:80%;padding:10px;border:none;border-radius:8px;margin-top:10px;}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:15px;padding:20px;}
-.card{background:#b8b2a7;}border-radius:12px;overflow:hidden;cursor:pointer;}
+.card{
+  background:#b8b2a7;
+  border-radius:12px;
+  overflow:hidden;
+  cursor:pointer;
+}
 .content{padding:10px;}
 </style>
 </head>
@@ -27,6 +32,14 @@ input{width:80%;padding:10px;border:none;border-radius:8px;margin-top:10px;}
 <input id="search" placeholder="Oyun ara...">
 </header>
 
+<div id="categories" style="padding:20px;text-align:center;">
+<button onclick="showCat('all')">Tümü</button>
+<button onclick="showCat('Horror')">👻 Horror</button>
+<button onclick="showCat('FPS')">🔫 FPS</button>
+<button onclick="showCat('Survival')">🌲 Survival</button>
+<button onclick="showCat('Parkour')">🏃 Parkour</button>
+<button onclick="showCat('Strategy')">⚔️ Strategy</button>
+</div>
 <div class="grid" id="box"></div>
 
 <script>
@@ -269,6 +282,20 @@ box.innerHTML += `
 });
 }
 
+function showCat(cat){
+
+if(cat==="all"){
+  render(games);
+  return;
+}
+
+render(
+  games.filter(g =>
+    g.cat.toLowerCase().includes(cat.toLowerCase())
+  )
+);
+
+}
 render(games);
 
 document.getElementById("search").addEventListener("input",(e)=>{
