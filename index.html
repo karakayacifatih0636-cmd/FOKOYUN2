@@ -269,14 +269,11 @@ box.innerHTML += `
 });
 }
 
-function render(list){
-  ...
-}
-
 render(games);
 
 document.getElementById("search").addEventListener("input",(e)=>{
-  ...
+let v = e.target.value.toLowerCase();
+render(games.filter(g=>g.name.toLowerCase().includes(v)));
 });
 
 </script>
