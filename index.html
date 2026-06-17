@@ -9,7 +9,7 @@
 body{
   background:#e8e3d9;
   background-image:url("fok1.png");
-  background-size:1000px;
+  background-size:500px;
   background-repeat:repeat;
 }
 header{padding:20px;background:#b8b2a7;text-align:center;}
@@ -39,6 +39,9 @@ input{width:80%;padding:10px;border:none;border-radius:8px;margin-top:10px;}
 <button onclick="showCat('Survival')">🌲 Survival</button>
 <button onclick="showCat('Parkour')">🏃 Parkour</button>
 <button onclick="showCat('Strategy')">⚔️ Strategy</button>
+<button onclick="topRated()">⭐ En Yüksek Puanlılar</button>
+<button onclick="topRated()">⭐ En Yüksek Puanlılar</button>
+<button onclick="randomGame()">🎲 Rastgele Oyun</button>
 </div>
 <div class="grid" id="box"></div>
 
@@ -293,6 +296,32 @@ render(
   games.filter(g =>
     g.cat.toLowerCase().includes(cat.toLowerCase())
   )
+);
+
+}
+function randomGame(){
+
+let random = games[Math.floor(Math.random()*games.length)];
+
+render([random]);
+
+}
+function topRated(){
+
+render(
+ [...games]
+ .sort((a,b)=>b.rating-a.rating)
+ .slice(0,20)
+);
+
+}
+function onlineGames(){
+
+render(
+games.filter(g =>
+g.cat.toLowerCase().includes("multiplayer") ||
+g.cat.toLowerCase().includes("co-op")
+)
 );
 
 }
